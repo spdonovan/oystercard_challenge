@@ -11,4 +11,9 @@ initial_balance = subject.balance
 expect(subject.top_up(1)).to eq(initial_balance + 1)
 end
 
+it 'Raise error when card is at maximum amount of £90' do
+  subject.top_up(Oystercard::CARD_LIMIT)
+  expect{ subject.top_up(1) }.to raise_error("Card limit reached #{Oystercard::CARD_LIMIT}")
+end
+
 end
