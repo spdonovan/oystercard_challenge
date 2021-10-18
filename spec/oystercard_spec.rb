@@ -26,10 +26,16 @@ it 'responds to card in journey' do
 end
 
 it 'responds to touch in' do
+  subject.top_up(Oystercard::MIN_JOURNEY)
   expect(subject.touch_in).to eq(true)
 end
 
 it 'responds to touch out' do
   expect(subject.touch_out).to eq(false)
 end
+
+it 'Raises error when card is below min balance. ' do
+  expect{subject.touch_in}.to raise_error("Not enough funds.")
+end
+
 end
