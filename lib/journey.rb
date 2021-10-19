@@ -1,7 +1,9 @@
 class Journey
+  attr_accessor :journeys
 
-  def journeys
-    @journeys = {}
+def initialize
+  @journeys = {}
+end
 
-  end
+
 end
