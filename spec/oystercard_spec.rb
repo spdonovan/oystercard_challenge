@@ -58,4 +58,6 @@ it 'Saves the station touched out at' do
   expect(subject.exit_station).to eq exit_station
 end
 
+
+
 end
