@@ -7,22 +7,21 @@ MIN_FARE = 1
 
   def initialize
     @balance = 0
-    @card_limit = CARD_LIMIT
-    @min_fare = MIN_FARE
+   
   end
 
   def top_up(amount)
-    raise "Card limit reached #{@card_limit}" if (@balance + amount > @card_limit)
+    raise "Card limit reached #{CARD_LIMIT}" if (@balance + amount > CARD_LIMIT)
     @balance += amount
   end
 
   def touch_in(station)
-    raise "Not enough funds." if @balance < @min_fare
+    raise "Not enough funds." if @balance < MIN_FARE
     @entry_station = station
   end
 
   def touch_out(station)
-    @balance -= @min_fare
+    @balance -= MIN_FARE
     @exit_station = station
     @entry_station = nil
   end
